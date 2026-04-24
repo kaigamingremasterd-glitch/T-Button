@@ -1,72 +1,63 @@
- -- Q button
-
-local ScreenGui = Instance.new("ScreenGui")
+-- Q button
+local ScreenGuiQ = Instance.new("ScreenGui")
 local QButton = Instance.new("TextButton")
-local UICorner = Instance.new("UICorner")
+local UICornerQ = Instance.new("UICorner")
 
-ScreenGui.Name = "VoidMobileUI"
-ScreenGui.Parent = game:GetService("CoreGui") or game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
-ScreenGui.ResetOnSpawn = false
+ScreenGuiQ.Name = "VoidMobileUI"
+ScreenGuiQ.Parent = game:GetService("CoreGui") or game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
+ScreenGuiQ.ResetOnSpawn = false
 
 QButton.Name = "QTrigger"
-QButton.Parent = ScreenGui
+QButton.Parent = ScreenGuiQ
 QButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-QButton.BorderSizePixel = 0
-QButton.Position = UDim2.new(1, -500, 0.7, 0) -- Middle Bottom
-QButton.Size = UDim2.new(0, 70, 0, 70) -- Square shape
+QButton.Position = UDim2.new(1, -170, 0.7, 0) -- Adjusted for screen visibility
+QButton.Size = UDim2.new(0, 70, 0, 70)
 QButton.Font = Enum.Font.SpecialElite
 QButton.Text = "Q"
-QButton.TextColor3 = Color3.fromRGB(255, 0, 255) -- Void Pink
+QButton.TextColor3 = Color3.fromRGB(255, 0, 255)
 QButton.TextSize = 40
 
-UICorner.CornerRadius = UDim.new(0, 10)
-UICorner.Parent = QButton
+UICornerQ.CornerRadius = UDim.new(0, 10)
+UICornerQ.Parent = QButton
 
 QButton.MouseButton1Click:Connect(function()
     task.spawn(function()
         if GrandfatherTime then
             GrandfatherTime()
         else
-            -- If the function is bound to a keypress instead
-            local vim = game:GetService("VirtualInputManager")
-            vim:SendKeyEvent(true, Enum.KeyCode.Q, false, game)
+            game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.Q, false, game)
         end
     end)
-end) 
+end)
 
- -- T button
+-- T button
+local ScreenGuiT = Instance.new("ScreenGui")
+local TButton = Instance.new("TextButton")
+local UICornerT = Instance.new("UICorner")
 
-local ScreenGui = Instance.new("ScreenGui")
-local QButton = Instance.new("TextButton")
-local UICorner = Instance.new("UICorner")
+ScreenGuiT.Name = "VoidMobileUITtrigger"
+ScreenGuiT.Parent = game:GetService("CoreGui") or game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
+ScreenGuiT.ResetOnSpawn = false
 
-ScreenGui.Name = "VoidMobileUITtrigger"
-ScreenGui.Parent = game:GetService("CoreGui") or game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
-ScreenGui.ResetOnSpawn = false
+TButton.Name = "TTrigger"
+TButton.Parent = ScreenGuiT
+TButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TButton.Position = UDim2.new(1, -90, 0.7, 0) -- Placed next to Q
+TButton.Size = UDim2.new(0, 70, 0, 70)
+TButton.Font = Enum.Font.SpecialElite
+TButton.Text = "T"
+TButton.TextColor3 = Color3.fromRGB(255, 0, 255)
+TButton.TextSize = 40
 
-QButton.Name = "T
-tTrigger"
-QButton.Parent = ScreenGui
-QButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-QButton.BorderSizePixel = 0
-QButton.Position = UDim2.new(1, -460, 0.7, 0) -- Middle Bottom
-QButton.Size = UDim2.new(0, 70, 0, 70) -- Square shape
-QButton.Font = Enum.Font.SpecialElite
-QButton.Text = "T"
-QButton.TextColor3 = Color3.fromRGB(255, 0, 255) -- Void Pink
-QButton.TextSize = 40
+UICornerT.CornerRadius = UDim.new(0, 10)
+UICornerT.Parent = TButton
 
-UICorner.CornerRadius = UDim.new(0, 10)
-UICorner.Parent = QButton
-
-QButton.MouseButton1Click:Connect(function()
+TButton.MouseButton1Click:Connect(function()
     task.spawn(function()
-        if GrandfatherTime then
-            Taunt() 
+        if Taunt then
+            Taunt()
         else
-            -- If the function is bound to a keypress instead
-            local vim = game:GetService("VirtualInputManager")
-            vim:SendKeyEvent(true, Enum.KeyCode.Q, false, game)
+            game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.T, false, game)
         end
     end)
-end) 
+end)

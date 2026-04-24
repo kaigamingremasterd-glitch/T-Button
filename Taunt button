@@ -1,0 +1,72 @@
+ -- Q button
+
+local ScreenGui = Instance.new("ScreenGui")
+local QButton = Instance.new("TextButton")
+local UICorner = Instance.new("UICorner")
+
+ScreenGui.Name = "VoidMobileUI"
+ScreenGui.Parent = game:GetService("CoreGui") or game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ResetOnSpawn = false
+
+QButton.Name = "QTrigger"
+QButton.Parent = ScreenGui
+QButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+QButton.BorderSizePixel = 0
+QButton.Position = UDim2.new(1, -500, 0.7, 0) -- Middle Bottom
+QButton.Size = UDim2.new(0, 70, 0, 70) -- Square shape
+QButton.Font = Enum.Font.SpecialElite
+QButton.Text = "Q"
+QButton.TextColor3 = Color3.fromRGB(255, 0, 255) -- Void Pink
+QButton.TextSize = 40
+
+UICorner.CornerRadius = UDim.new(0, 10)
+UICorner.Parent = QButton
+
+QButton.MouseButton1Click:Connect(function()
+    task.spawn(function()
+        if GrandfatherTime then
+            GrandfatherTime()
+        else
+            -- If the function is bound to a keypress instead
+            local vim = game:GetService("VirtualInputManager")
+            vim:SendKeyEvent(true, Enum.KeyCode.Q, false, game)
+        end
+    end)
+end) 
+
+ -- T button
+
+local ScreenGui = Instance.new("ScreenGui")
+local QButton = Instance.new("TextButton")
+local UICorner = Instance.new("UICorner")
+
+ScreenGui.Name = "VoidMobileUITtrigger"
+ScreenGui.Parent = game:GetService("CoreGui") or game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ResetOnSpawn = false
+
+QButton.Name = "T
+tTrigger"
+QButton.Parent = ScreenGui
+QButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+QButton.BorderSizePixel = 0
+QButton.Position = UDim2.new(1, -460, 0.7, 0) -- Middle Bottom
+QButton.Size = UDim2.new(0, 70, 0, 70) -- Square shape
+QButton.Font = Enum.Font.SpecialElite
+QButton.Text = "T"
+QButton.TextColor3 = Color3.fromRGB(255, 0, 255) -- Void Pink
+QButton.TextSize = 40
+
+UICorner.CornerRadius = UDim.new(0, 10)
+UICorner.Parent = QButton
+
+QButton.MouseButton1Click:Connect(function()
+    task.spawn(function()
+        if GrandfatherTime then
+            Taunt() 
+        else
+            -- If the function is bound to a keypress instead
+            local vim = game:GetService("VirtualInputManager")
+            vim:SendKeyEvent(true, Enum.KeyCode.Q, false, game)
+        end
+    end)
+end) 
